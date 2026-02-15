@@ -1,12 +1,22 @@
-import React from "react";
+import AppLayout from '@/layouts/app-layout';
+import type { BreadcrumbItem } from '@/types';
+
+const breadcrumbs: BreadcrumbItem[] = [
+    {
+        title: 'Users',
+        href: "/users",
+    },
+];
 
 export default function Users() {
     return (
-        <div>
+        <AppLayout breadcrumbs={breadcrumbs}>
+        <div>      
                 <div>
                     <h1>Users</h1>
-                    <h2>Find all the users here</h2>
+                    <h2>Find all the Users here</h2>
                 </div>
         </div>
+        </AppLayout>
     );
 }

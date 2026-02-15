@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Check, ChevronsUpDown, GalleryVerticalEnd } from "lucide-react"
+import { Check, ChevronsUpDown, GalleryVerticalEnd, Route } from "lucide-react"
 
 import {
   DropdownMenu,
@@ -14,13 +14,13 @@ import {
 } from "@/components/ui/sidebar"
 
 export function VersionSwitcher({
-  versions,
+  options,
   defaultVersion,
 }: {
-  versions: string[]
+  options: string[]
   defaultVersion: string
 }) {
-  const [selectedVersion, setSelectedVersion] = React.useState(defaultVersion)
+    const [selectedOption, setSelectedOption] = React.useState(options[0])
 
   return (
     <SidebarMenu>
@@ -44,13 +44,11 @@ export function VersionSwitcher({
             className="w-(--radix-dropdown-menu-trigger-width)"
             align="start"
           >
-            {versions.map((version) => (
+            {options.map((options) => (
               <DropdownMenuItem
-                key={version}
-                onSelect={() => setSelectedVersion(version)}
+                key={options}
               >
-                {version}{" "}
-                {version === selectedVersion && <Check className="ml-auto" />}
+                {options}{" "}  
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>
